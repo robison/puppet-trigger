@@ -2,8 +2,8 @@
 
 
 class trigger::params {
-
-$packages =
+$version = '1.4.4'
+$packages = ''
 $prefix = '/etc/trigger'
 $use_gpg_auth = False
 $user_home = 'os.getenv('HOME')'

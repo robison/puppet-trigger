@@ -27,7 +27,7 @@ class trigger::config inherits trigger::params {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    require => [ Package['trigger'],
+    require => [ Package['trigger'], File['/etc/trigger'] ]
     content => template('trigger_settings.py.erb'),
     }
 
