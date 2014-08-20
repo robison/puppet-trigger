@@ -15,17 +15,13 @@ $builtin_plugins = [
     'trigger.contrib.commando.plugins.config_device',
     'trigger.contrib.commando.plugins.show_clock',
     'trigger.contrib.commando.plugins.show_version'
-]
+    ]
 $commando_plugins = $builtin_plugins
 $firewall_dir = '/data/firewalls'
 $tftproot_dir = '/data/tftproot'
 $tftp_host = ''
-$internal_networks = [
-    IPy.IP("10.0.0.0/8"),
-    IPy.IP("172.16.0.0/12"),
-    IPy.IP("192.168.0.0/16"),
-]
-$supported_vendors = (
+$internal_networks = [ '10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16' ]
+$supported_vendors = [
     'a10',
     'arista',
     'aruba',
@@ -40,72 +36,72 @@ $supported_vendors = (
     'mrv',
     'netscreen',
     'paloalto',
-)
+]
 $valid_vendors = $supported_vendors
 $vendor_map = {
-    'A10 NETWORKS': 'a10',
-    'ARISTA NETWORKS': 'arista',
-    'ARUBA NETWORKS': 'aruba',
-    'BROCADE': 'brocade',
-    'CISCO SYSTEMS': 'cisco',
-    'CITRIX': 'citrix',
-    'DELL': 'dell',
-    'F5 NETWORKS': 'f5',
-    'FORCE10': 'force10',
-    'FOUNDRY': 'foundry',
-    'JUNIPER': 'juniper',
-    'MRV': 'mrv',
-    'NETSCREEN TECHNOLOGIES': 'netscreen',
+    'A10 NETWORKS' => 'a10',
+    'ARISTA NETWORKS' => 'arista',
+    'ARUBA NETWORKS' => 'aruba',
+    'BROCADE' => 'brocade',
+    'CISCO SYSTEMS' => 'cisco',
+    'CITRIX' => 'citrix',
+    'DELL' => 'dell',
+    'F5 NETWORKS' => 'f5',
+    'FORCE10' => 'force10',
+    'FOUNDRY' => 'foundry',
+    'JUNIPER' => 'juniper',
+    'MRV' => 'mrv',
+    'NETSCREEN TECHNOLOGIES' => 'netscreen',
 }
 $supported_platforms = {
-    'a10': ['SWITCH'],
-    'arista': ['SWITCH'],
-    'aruba': ['SWITCH'],
-    'brocade': ['ROUTER', 'SWITCH'],
-    'cisco': ['ROUTER', 'SWITCH'],
-    'citrix': ['SWITCH'],
-    'dell': ['SWITCH'],
-    'f5': ['LOAD BALANCING', 'SWITCH'],
-    'force10': ['ROUTER', 'SWITCH'],
-    'foundry': ['ROUTER', 'SWITCH'],
-    'juniper': ['FIREWALL', 'ROUTER', 'SWITCH'],
-    'mrv': ['CONSOLE SERVER', 'SWITCH'],
-    'netscreen': ['FIREWALL'],
-    'paloalto': ['FIREWALL'],
+    'a10' => 'SWITCH',
+    'arista' => 'SWITCH',
+    'aruba' => 'SWITCH',
+    'brocade' => ''ROUTER', 'SWITCH'',
+    'cisco' => ''ROUTER', 'SWITCH'',
+    'citrix' => 'SWITCH',
+    'dell' => 'SWITCH',
+    'f5' => ''LOAD BALANCING', 'SWITCH'',
+    'force10' => ''ROUTER', 'SWITCH'',
+    'foundry' => ''ROUTER', 'SWITCH'',
+    'juniper' => ''FIREWALL', 'ROUTER', 'SWITCH'',
+    'mrv' => ''CONSOLE SERVER', 'SWITCH'',
+    'netscreen' => 'FIREWALL'],
+    'paloalto' => 'FIREWALL',
 }
-$supported_types = ('CONSOLE SERVER', 'FIREWALL', 'DWDM', 'LOAD BALANCING',
-                   'ROUTER', 'SWITCH')
+$supported_types = [ 'CONSOLE SERVER', 'FIREWALL', 'DWDM', 'LOAD BALANCING',
+                   'ROUTER', 'SWITCH' ]
 $default_types = {
-    'a10': 'SWITCH',
-    'arista': 'SWITCH',
-    'aruba': 'SWITCH',
-    'brocade': 'SWITCH',
-    'citrix': 'SWITCH',
-    'cisco': 'ROUTER',
-    'dell': 'SWITCH',
-    'f5': 'LOAD BALANCING',
-    'force10': 'ROUTER',
-    'foundry': 'SWITCH',
-    'juniper': 'ROUTER',
-    'mrv': 'CONSOLE SERVER',
-    'netscreen': 'FIREWALL',
-    'paloalto': 'FIREWALL',
+    'a10' => 'SWITCH',
+    'arista' => 'SWITCH',
+    'aruba' => 'SWITCH',
+    'brocade' => 'SWITCH',
+    'citrix' => 'SWITCH',
+    'cisco' => 'ROUTER',
+    'dell' => 'SWITCH',
+    'f5' => 'LOAD BALANCING',
+    'force10' => 'ROUTER',
+    'foundry' => 'SWITCH',
+    'juniper' => 'ROUTER',
+    'mrv' => 'CONSOLE SERVER',
+    'netscreen' => 'FIREWALL',
+    'paloalto' => 'FIREWALL',
 }
-fallback_type = 'ROUTER'
+$fallback_type = 'ROUTER'
 $default_timeout = '5 * 60'
 $telnet_timeout  = 60
 $telnet_enabled = True
 $ssh_port = 22
 $telnet_port = 23
 $ssh_pty_disabled = {
-    'dell': ['SWITCH'], }
+    'dell' => 'SWITCH', }
 
 $ssh_async_disabled = {
-    'dell': ['SWITCH'],
-    'foundry': ['SWITCH'],
+    'dell' => 'SWITCH',
+    'foundry' => 'SWITCH',
 }
 
-$ioslike_vendors = (
+$ioslike_vendors = []
     'a10',
     'arista',
     'aruba',
@@ -114,10 +110,10 @@ $ioslike_vendors = (
     'dell',
     'force10',
     'foundry',
-)
+]
 
 $gorc_file = '~/.gorc'
-$gorc_allowed_commands = (
+$gorc_allowed_commands = [
     'cli',
     'enable',
     'exit',
@@ -133,41 +129,41 @@ $gorc_allowed_commands = (
     'traceroute',
     'who',
     'whoami'
-)
+]
 
 $with_acls = True
 $autoacl_file = 'os.environ.get('AUTOACL_FILE', os.path.join(PREFIX, 'autoacl.py'))'
-$netdevices_loaders = (
+$netdevices_loaders = [
     'trigger.netdevices.loaders.filesystem.XMLLoader',
     'trigger.netdevices.loaders.filesystem.JSONLoader',
     'trigger.netdevices.loaders.filesystem.SQLiteLoader',
     'trigger.netdevices.loaders.filesystem.RancidLoader',
     'trigger.netdevices.loaders.filesystem.CSVLoader',
-)
+]
 
 $netdevices_source = 'os.environ.get('NETDEVICES_SOURCE', os.path.join(PREFIX,'netdevices.xml'))'
 $netdevices_file = $netdevices_source
 $rancid_recurse_subdirs = 'os.environ.get('RANCID_RECURSE_SUBDIRS', False)'
-$valid_owners = (
+$valid_owners = [
     #'Data Center',
     #'Backbone Engineering',
     #'Enterprise Networking',
-)
+]
 
 $juniper_full_commit_fields = {
-    #'deviceType': 'SWITCH',
-    #'make': 'EX4200',
+    #'deviceType' => 'SWITCH',
+    #'make' => 'EX4200',
 }
 
 prompt_patterns = {
-    'aruba': r'\(\S+\)(?: \(\S+\))?\s?#$', # ArubaOS 6.1
-    #'aruba': r'\S+(?: \(\S+\))?\s?#\s$', # ArubaOS 6.2
-    'citrix': r'\sDone\n$',
-    'f5': r'.*\(tmos\).*?#\s{1,2}\r?$',
-    'juniper': r'\S+\@\S+(?:\>|#)\s$',
-    'mrv': r'\r\n?.*(?:\:\d{1})?\s\>\>?$',
-    'netscreen': r'(\w+?:|)[\w().-]*\(?([\w.-])?\)?\s*->\s*$',
-    'paloalto': r'\r\n\S+(?:\>|#)\s?$',
+    'aruba' => 'r'\(\S+\)(?: \(\S+\))?\s?#$', # ArubaOS 6.1
+    #'aruba' => 'r'\S+(?: \(\S+\))?\s?#\s$', # ArubaOS 6.2
+    'citrix' => 'r'\sDone\n$',
+    'f5' => 'r'.*\(tmos\).*?#\s{1,2}\r?$',
+    'juniper' => 'r'\S+\@\S+(?:\>|#)\s$',
+    'mrv' => 'r'\r\n?.*(?:\:\d{1})?\s\>\>?$',
+    'netscreen' => 'r'(\w+?:|)[\w().-]*\(?([\w.-])?\)?\s*->\s*$',
+    'paloalto' => 'r'\r\n\S+(?:\>|#)\s?$',
 }
 
 $ioslike_prompt_pat = 'r'\S+(\(config(-[a-z:1-9]+)?\))?#\s?$''
@@ -195,16 +191,13 @@ $autoload_filter_thresh = {}
 $autoload_bulk_thresh = 10
 $bulk_max_hits = {}
 $bulk_max_hits_default = 1
-$stage_acls = '_stage_acls'
-$get_tftp_source = '_get_tftp_source'
-$get_current_oncall = lambda x=None: x
-$create_cm_ticket = '_create_cm_ticket_stub'
+$get_current_oncall = 'lambda x=None: x'
 $email_sender = 'nobody@not.real'
-$success_emails = [ #'neteng@example.com',]
-$failure_emails = [ #'primarypager@example.com', #'secondarypager@example.com',]
+$success_emails = [ 'neteng@example.com',]
+$failure_emails = [ 'primarypager@example.com', 'secondarypager@example.com',]
 $notification_sender = socket.gethostname()
-$success_recipients = [ # 'foo.example.com', ]
-$failure_recipients = [ # socket.gethostname() ]
+$success_recipients = [ 'foo.example.com', ]
+$failure_recipients = [ socket.gethostname() ]
 $notification_handlers = [ 'trigger.utils.notifications.handlers.email_handler',]
 
 }
